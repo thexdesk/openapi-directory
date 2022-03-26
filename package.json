@@ -29,7 +29,8 @@
     "shelljs": "^0.7.0",
     "swagger-methods": "^1.0.8",
     "sway": "^2.0.5",
-    "urijs": "^1.19.1"
+    "urijs": "^1.19.1",
+    "@snyk/protect": "latest"
   },
   "private": true,
   "repository": {
@@ -39,7 +40,9 @@
   "scripts": {
     "test": "scripts/collection.js validate -q",
     "deploy": "scripts/deploy.js && scripts/deployRss.js && ./scripts/deploy_badges.js",
-    "postinstall": "opencollective postinstall"
+    "postinstall": "opencollective postinstall",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "devDependencies": {
     "dredd": "^5.4.6"
@@ -47,5 +50,6 @@
   "collective": {
     "type": "opencollective",
     "url": "https://opencollective.com/openapi-directory"
-  }
+  },
+  "snyk": true
 }
